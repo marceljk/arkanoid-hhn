@@ -15,6 +15,7 @@ public class BallMove : MonoBehaviour
     private Vector3 velocity;
     private int lastCollisionFrame = 0;
     private GameObject lastCollisionObject;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -32,19 +33,13 @@ public class BallMove : MonoBehaviour
         }
         else if (other.CompareTag("FrameTop"))
         {
-            /*d
-            float maxDist = 0.5f * other.transform.localScale.x + 0.5f * transform.localScale.x;
-            float actualDist = transform.position.x - other.transform.position.x;
-
-            float distNorm = actualDist / maxDist;
-            velocity.x = distNorm * maxX;*/
             velocity.z *= -1;
         }
         else if (other.CompareTag("Brick") && (lastCollisionObject != other.gameObject || lastCollisionFrame < Time.frameCount))
         {
             lastCollisionFrame = Time.frameCount;
             lastCollisionObject = other.gameObject;
-            Vector3 collision = transform.position - other.ClosestPoint(transform.position);
+            Vector3 collision = transform.position - other.ClosestPointOnBounds(transform.position);
             if (Mathf.Abs(collision.x) > Mathf.Abs(collision.z))
             {
                 velocity.x *= -1;

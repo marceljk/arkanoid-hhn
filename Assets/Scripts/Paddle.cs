@@ -9,20 +9,69 @@ public class Paddle : MonoBehaviour
     public GameObject ball;
 
     private float dir = 0;
+    private Vector3 originlocalScale;
+    private Vector3 originlocalScaleBall;
+    private float increasePaddleTimeout = 0f;
+    private float increaseBallTimeout = 0f;
     // Start is called before the first frame update
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("PowerUp"))
+        {
+            if (other.gameObject.GetComponent<PowerUp>().type == "IncreasePaddle")
+            {
+                increasePaddleTimeout += 10.0f;
+                transform.localScale = new Vector3(transform.localScale.x * 2, transform.localScale.y, transform.localScale.z);
+            } else if (other.gameObject.GetComponent<PowerUp>().type == "ExtraLive") 
+            {
+                GameManager.instance.Health += 1;
+            } else if (other.gameObject.GetComponent<PowerUp>().type == "IncreaseBall")
+            {
+                increaseBallTimeout += 10f;
+                ball.transform.localScale *= 1.5f;
+            }
+            Destroy(other.gameObject);
+        }
+    }
+
+    void ResetIncreasePaddle()
+    {
+        transform.localScale = originlocalScale;
+    }
+    void ResetIncreaseBall()
+    {
+        ball.transform.localScale = originlocalScaleBall;
+    }
+
     void Start()
     {
-
+        originlocalScale = transform.localScale;
+        originlocalScaleBall = ball.transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (increasePaddleTimeout <= 0)
+        {
+            ResetIncreasePaddle();
+        } else
+        {
+            increasePaddleTimeout -= Time.deltaTime;
+        }
+
+        if (increaseBallTimeout <= 0)
+        {
+            ResetIncreaseBall();
+        } else
+        {
+            increaseBallTimeout -= Time.deltaTime;
+        }
         if (Input.GetKeyDown(KeyCode.Space) && GameManager.instance.Health > 0)
         {
             ball.GetComponent<BallMove>().StartBall();
         }
-        if (ball.GetComponent<BallMove>().Velocity == new Vector3(0,0,0))
+        if (ball.GetComponent<BallMove>().Velocity == new Vector3(0, 0, 0))
         {
             ball.transform.position = new Vector3(transform.position.x, ball.transform.position.y, ball.transform.position.z);
         }

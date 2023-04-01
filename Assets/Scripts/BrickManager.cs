@@ -8,14 +8,19 @@ public class BrickManager : MonoBehaviour
     public Material brickStrong;
     public Material brickNormal;
     public Material brickWeak;
+    public GameObject powerUp;
 
     public void TakeDamage(int amount)
     {
         health -= amount;
         UpdateMaterial();
-        GameManager.instance.Score += 10;
+        GameManager.instance.AddScorePoint(10);
         if (health < 1 )
         {
+            if (powerUp != null)
+            {
+                Instantiate(powerUp, transform.position, Quaternion.identity);
+            }
             Destroy(this.gameObject);
         }
     }

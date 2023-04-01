@@ -3,7 +3,13 @@ guid: 25ade8cfb7bb1e144a3e3cb7bdf7dae5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - textHealth: {instanceID: 0}
+  - textScore: {instanceID: 0}
+  - textResult: {instanceID: 0}
+  - bricksParent: {instanceID: 0}
+  - brickObject: {fileID: 1844748501531210772, guid: 039a81d2c32e55d4d8ec5e6d0d4f6f53, type: 3}
+  - powerUpObject: {fileID: 7087350526428772756, guid: d6a9a08306b4d514f994c7f8c3b67fb8, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
