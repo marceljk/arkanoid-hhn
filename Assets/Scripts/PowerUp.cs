@@ -8,6 +8,10 @@ public class PowerUp : MonoBehaviour
     public Transform playArea;
     private Vector3 velocity;
     public string type;
+    public Material materialIncreasePaddle;
+    public Material materialIncreaseBall;
+    public Material materialDoublePoints;
+    public Material materialExtraLive;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +28,23 @@ public class PowerUp : MonoBehaviour
         if (transform.position.z < -maxZPosition)
         {
             Destroy(this.gameObject);
+        }
+
+        switch (type)
+        {
+            case "ExtraLive":
+                this.gameObject.GetComponent<MeshRenderer>().material = materialExtraLive;
+                break;
+            case "IncreasePaddle":
+                this.gameObject.GetComponent<MeshRenderer>().material = materialIncreasePaddle;
+                break;
+            case "IncreaseBall":
+                this.gameObject.GetComponent<MeshRenderer>().material = materialIncreaseBall;
+                break;
+            case "DoublePoints":
+                this.gameObject.GetComponent<MeshRenderer>().material = materialDoublePoints;
+                break;
+
         }
     }
 }

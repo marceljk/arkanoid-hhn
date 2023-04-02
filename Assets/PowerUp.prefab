@@ -43,7 +43,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0, g: 0.7649777, b: 1, a: 1}
+  m_Color: {r: 0.9468057, g: 1, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -209,6 +209,10 @@ MonoBehaviour:
   speedZ: 5
   playArea: {fileID: 1125386174719080383, guid: 68eced9e75393804eb18ab826e7f47ba, type: 3}
   type: IncreaseBall
+  materialIncreasePaddle: {fileID: 2100000, guid: 859c2f461e22b984da9d14f6693b9f88, type: 2}
+  materialIncreaseBall: {fileID: 2100000, guid: 3c126dcfc7b0a5649968a4720e98855e, type: 2}
+  materialDoublePoints: {fileID: 2100000, guid: 1c7d54edb2898cf4c8f4e5dfc6881809, type: 2}
+  materialExtraLive: {fileID: 2100000, guid: 7f86a621698983f468b42bf55a5f32f5, type: 2}
 --- !u!54 &-3474896638061229823
 Rigidbody:
   m_ObjectHideFlags: 0

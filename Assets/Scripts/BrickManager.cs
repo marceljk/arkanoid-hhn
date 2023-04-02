@@ -9,6 +9,7 @@ public class BrickManager : MonoBehaviour
     public Material brickNormal;
     public Material brickWeak;
     public GameObject powerUp;
+    public string powerUpType;
 
     public void TakeDamage(int amount)
     {
@@ -19,7 +20,8 @@ public class BrickManager : MonoBehaviour
         {
             if (powerUp != null)
             {
-                Instantiate(powerUp, transform.position, Quaternion.identity);
+                var powerUpInstance = Instantiate(powerUp, transform.position, Quaternion.identity);
+                powerUpInstance.GetComponent<PowerUp>().type = powerUpType;
             }
             Destroy(this.gameObject);
         }
