@@ -4,6 +4,8 @@ Gehostet als WebApp: https://arkanoid-ab215.web.app/
 
 YouTube Video mit kurzer Vorstellung: https://youtu.be/VMMcSD5CQnU
 
+GitHub Repo: https://github.com/marceljk/arkanoid-hhn
+
 Das Spiel enthält insgesamt zwei Levels. 
 
 ## Erstes Level
