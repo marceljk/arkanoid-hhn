@@ -6,6 +6,9 @@ YouTube Video mit kurzer Vorstellung: https://youtu.be/VMMcSD5CQnU
 
 GitHub Repo: https://github.com/marceljk/arkanoid-hhn
 
+## Start
+Projekt in Unity öffnen und in den Assets Scenes/SampleScene öffnen
+
 Das Spiel enthält insgesamt zwei Levels. 
 
 ## Erstes Level
