@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         textHealth.text = healthState;
         if (health == 0)
         {
-            textResult.text = "Game Over!\nYour score is " + score.ToString();
+            textResult.text = "Your score is " + score.ToString();
             textResultSmall.text = "Press Space to restart";
             isGameRunning = false;
         }
@@ -188,6 +188,8 @@ public class GameManager : MonoBehaviour
                 }
                 textResult.text = "";
                 textResultSmall.text = "";
+                updateMultiplierDisplay();
+                updateHealthDisplay();
             }
         }
         if (health == 0 && Input.GetKeyDown(KeyCode.Space))

@@ -2,7 +2,7 @@
 
 Gehostet als WebApp: https://arkanoid-ab215.web.app/
 
-YouTube Video mit kurzer Vorstellung: *wird noch hinzugefügt*
+YouTube Video mit kurzer Vorstellung: https://youtu.be/VMMcSD5CQnU
 
 Das Spiel enthält insgesamt zwei Levels. 
 
